@@ -10,11 +10,15 @@
   fileSystems."/home/matthew/owncloud" =
     { device = "/dev/vgfluorine/owncloud";
       fsType = "ext4";
-      options = [ "ro" ];
     };
 
   fileSystems."/media/determination" =
     { device = "/dev/vgfluorine/determination";
+      fsType = "ext4";
+    };
+
+  fileSystems."/media/stretch" =
+    { device = "/dev/vgfluorine/jessie";
       fsType = "ext4";
     };
 }
