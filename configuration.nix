@@ -28,6 +28,17 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  # Enable SSH server
+  services.openssh.enable = true;
+  services.openssh.forwardX11 = true;
+  services.openssh.permitRootLogin = "no";
+  services.openssh.passwordAuthentication = false;
+  services.openssh.challengeResponseAuthentication = false;
+  services.openssh.hostKeys = [ {
+    type = "ed25519";
+    path = "/etc/ssh/ssh_host_ed25519_key";
+  } ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
