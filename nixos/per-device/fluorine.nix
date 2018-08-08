@@ -21,4 +21,7 @@
     { device = "/dev/vgfluorine/jessie";
       fsType = "ext4";
     };
+
+  # Enable hardware video rendering
+  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
 }
