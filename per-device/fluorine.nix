@@ -24,4 +24,8 @@
 
   # Enable hardware video rendering
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+
+  # Needed for Steam
+  hardware.opengl.driSupport32Bit = true;
+  hardware.pulseaudio.support32Bit = true;
 }
