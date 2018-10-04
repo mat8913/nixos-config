@@ -20,10 +20,6 @@
   # started in user sessions.
   programs.bash.enableCompletion = true;
 
-  # So that file managers can mount external drives
-  services.gnome3.gvfs.enable = true;
-  environment.variables.GIO_EXTRA_MODULES = [ "${pkgs.gnome3.gvfs}/lib/gio/modules" ];
-
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -39,16 +35,21 @@
     path = "/etc/ssh/ssh_host_ed25519_key";
   } ];
 
-  # Enable the X11 windowing system.
+  # Enable GNOME3 desktop environment
   services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.desktopManager.gnome3.enable = true;
+  services.xserver.desktopManager.xterm.enable = false;
 
-  services.xserver.displayManager.lightdm.enable = true;
+  # Workaround for no Wayland support in GDM yet
+  environment.systemPackages = [ pkgs.gnome3.gnome-session ];
 
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
-  services.xserver.libinput.horizontalScrolling = false;
-  services.xserver.libinput.tapping = false;
+
+  # Workaround for #40878
+  environment.etc = {
+    "profile.d/vte.sh" = {
+      source = "${pkgs.gnome3.vte}/etc/profile.d/vte.sh";
+    };
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
