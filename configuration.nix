@@ -43,6 +43,8 @@
   # Workaround for no Wayland support in GDM yet
   environment.systemPackages = [ pkgs.gnome3.gnome-session ];
 
+  # Enable Flatpak
+  services.flatpak.enable = true;
 
   # Workaround for #40878
   environment.etc = {
