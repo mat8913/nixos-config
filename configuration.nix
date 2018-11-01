@@ -22,6 +22,9 @@
 
     # For gsettings binary
     pkgs.glib.dev
+
+    pkgs.vimHugeX
+    pkgs.git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
