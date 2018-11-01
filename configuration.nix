@@ -16,6 +16,14 @@
   i18n.defaultLocale = "en_AU.UTF-8";
   time.timeZone = "Australia/Sydney";
 
+  environment.systemPackages = with pkgs; [
+    # Workaround for no Wayland support in GDM yet
+    pkgs.gnome3.gnome-session
+
+    # For gsettings binary
+    pkgs.glib.dev
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.bash.enableCompletion = true;
@@ -41,9 +49,6 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.desktopManager.xterm.enable = false;
-
-  # Workaround for no Wayland support in GDM yet
-  environment.systemPackages = [ pkgs.gnome3.gnome-session ];
 
   # Enable Flatpak
   services.flatpak.enable = true;
