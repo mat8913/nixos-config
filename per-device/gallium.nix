@@ -5,6 +5,10 @@
 
   hardware.opengl.extraPackages = [ pkgs.mesa_noglu.drivers ];
 
+  environment.systemPackages = with pkgs; [
+    acpi
+  ];
+
   # Full-disk encryption + boot from external USB
   boot.loader.grub.device = "nodev";
 
