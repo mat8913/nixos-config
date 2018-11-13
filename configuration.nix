@@ -18,13 +18,13 @@
 
   environment.systemPackages = with pkgs; [
     # Workaround for no Wayland support in GDM yet
-    pkgs.gnome3.gnome-session
+    gnome3.gnome-session
 
     # For gsettings binary
-    pkgs.glib.dev
+    glib.dev
 
-    pkgs.vimHugeX
-    pkgs.git
+    vimHugeX
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
