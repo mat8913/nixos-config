@@ -13,7 +13,7 @@
   boot.loader.grub.device = "nodev";
 
   # Need this kernel stuff for new AMD APU
-  boot.kernelPackages = pkgs.linuxPackages_4_18;
+  boot.kernelPackages = pkgs.linuxPackages_4_19;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelParams = [ "rcu_nocbs=0-15" ];
 
