@@ -3,6 +3,10 @@
 {
   networking.hostName = "fluorine";
 
+  environment.systemPackages = with pkgs; [
+    acpi
+  ];
+
   # Full-disk encryption + boot from external USB
   boot.loader.grub.device = "nodev";
 
