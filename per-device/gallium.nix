@@ -3,6 +3,8 @@
 {
   networking.hostName = "gallium";
 
+  hardware.cpu.amd.updateMicrocode = true;
+
   hardware.opengl.extraPackages = [ pkgs.mesa_noglu.drivers ];
 
   environment.systemPackages = with pkgs; [
@@ -23,6 +25,7 @@
     extraConfig = ''
       X86_AMD_PLATFORM_DEVICE y
       DRM_AMD_DC_DCN1_0 y
+      PREEMPT_VOLUNTARY n
       PREEMPT y
       PREEMPT_RCU y
       RCU_EXPERT y
