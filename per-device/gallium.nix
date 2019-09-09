@@ -14,20 +14,6 @@
   # Full-disk encryption + boot from external USB
   boot.loader.grub.device = "nodev";
 
-  # Need this kernel stuff for new AMD APU
-  boot.kernelPackages = pkgs.linuxPackages_4_19;
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
-  boot.kernelPatches = [{
-    name = "my-config";
-    patch = null;
-    extraConfig = ''
-      X86_AMD_PLATFORM_DEVICE y
-      PREEMPT_VOLUNTARY n
-      PREEMPT y
-    '';
-  }];
-
   networking.firewall.extraCommands = ''
     iptables -w -P OUTPUT DROP
     iptables -w -A OUTPUT -o tun_proton -j ACCEPT
