@@ -181,6 +181,8 @@ in
   # Full-disk encryption + boot from external USB
   boot.loader.grub.device = "nodev";
 
+  networking.wireguard.enable = true;
+
   networking.firewall.extraCommands = ''
     iptables -w -P OUTPUT DROP
     iptables -w -A OUTPUT -o tun_proton -j ACCEPT
