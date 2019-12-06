@@ -63,30 +63,6 @@
     fi
   '';
 
-  # Workaround for bluetooth audio
-  systemd.services.fix-gdm-pulse = {
-    enable = true;
-    wantedBy = [ "display-manager.service" ];
-    before = [ "display-manager.service" ];
-    script = ''
-      mkdir -p /run/gdm/.config/pulse
-      cat <<EOF > /run/gdm/.config/pulse/default.pa
-      # load system wide configuration
-      .include /etc/pulse/default.pa
-      ### unload driver modules for Bluetooth hardware
-      .ifexists module-bluetooth-policy.so
-        unload-module module-bluetooth-policy
-      .endif
-      .ifexists module-bluetooth-discover.so
-        unload-module module-bluetooth-discover
-      .endif
-      EOF
-      chown gdm:gdm /run/gdm/.config
-      chown gdm:gdm /run/gdm/.config/pulse
-    '';
-    serviceConfig.Type = "oneshot";
-  };
-
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
