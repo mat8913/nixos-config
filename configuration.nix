@@ -56,13 +56,6 @@
   # Enable Flatpak
   services.flatpak.enable = true;
 
-  # Workaround for #40878
-  environment.interactiveShellInit = ''
-    if [[ "$VTE_VERSION" > 3405 ]]; then
-      source "${pkgs.gnome3.vte}/etc/profile.d/vte.sh"
-    fi
-  '';
-
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
   # servers. You should change this only after NixOS release notes say you
