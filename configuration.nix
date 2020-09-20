@@ -11,7 +11,8 @@
       ./per-device/default.nix  # Symbolic link to current device
     ];
 
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
+  networking.wireless.iwd.enable = true;
 
   i18n.defaultLocale = "en_AU.UTF-8";
   time.timeZone = "Australia/Sydney";
