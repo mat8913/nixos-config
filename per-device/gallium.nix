@@ -14,6 +14,8 @@
   # Full-disk encryption + boot from external USB
   boot.loader.grub.device = "nodev";
 
+  boot.kernelPackages = pkgs.linuxPackages_5_4;
+
   networking.wireguard.enable = true;
 
   networking.firewall.extraCommands = ''
