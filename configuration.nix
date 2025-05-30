@@ -41,6 +41,16 @@
     fi
   '';
 
+  environment.etc."bashrc.local".text = ''
+    if [ -d "$HOME/.nix-profile/etc/bashrc.d" ]; then
+      for i in "$HOME/.nix-profile/etc/bashrc.d/"*.sh; do
+        if [ -r "$i" ]; then
+          . "$i"
+        fi
+      done
+    fi
+  '';
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
