@@ -108,6 +108,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    wireguard-tools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
