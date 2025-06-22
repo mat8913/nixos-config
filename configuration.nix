@@ -4,6 +4,9 @@
 
 { config, lib, pkgs, ... }:
 
+let mypkgs = pkgs.callPackage ./mypkgs {};
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -109,6 +112,7 @@
   environment.systemPackages = with pkgs; [
     git
     wireguard-tools
+    mypkgs.nmwgrefresh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
