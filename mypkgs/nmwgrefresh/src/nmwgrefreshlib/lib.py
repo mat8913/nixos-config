@@ -29,6 +29,12 @@ async def async_main(main_loop):
 
         print(jpeer)
 
+        private_key = None
+        with open('/etc/nmwgrefresh/private_key.txt') as f:
+            private_key = f.read().strip()
+
+        wg_conn.set_property(NM.SETTING_WIREGUARD_PRIVATE_KEY, private_key)
+
         new_peer = peer.new_clone(False)
         succ = new_peer.set_public_key(jpeer['pubkey'], False)
         assert(succ == True)
