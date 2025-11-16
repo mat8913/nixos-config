@@ -26,6 +26,11 @@ in
   boot.initrd.kernelModules = [ "i915" ];
   boot.plymouth.enable = true;
 
+  boot.kernel.sysctl = {
+    "vm.dirty_bytes" = 629145600;
+    "vm.dirty_background_bytes" = 314572800;
+  };
+
   networking.hostName = "iron"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
