@@ -83,6 +83,8 @@ in
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  systemd.services.proton-vm = mypkgs.proton-vm.service;
+
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
