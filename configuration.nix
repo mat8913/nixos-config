@@ -138,6 +138,7 @@ in
   services.udisks2.enable = true;
 
   virtualisation.containers.enable = true;
+  virtualisation.podman.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
