@@ -11,6 +11,7 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/wifi_recon.nix
     ];
 
   nix.settings.use-xdg-base-directories = true;
