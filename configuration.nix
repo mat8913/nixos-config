@@ -119,6 +119,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    seahorse
     wireguard-tools
     mypkgs.nmwgrefresh
   ];
@@ -137,6 +138,8 @@ in
   # services.openssh.enable = true;
 
   services.udisks2.enable = true;
+
+  services.gnome.gnome-keyring.enable = true;
 
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
